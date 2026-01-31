@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --deep-espresso: #2A1B12;
+    --soft-cream: #F5F1E6;
+    --muted-gold: #D4AF37;
+    --tan: #D2B48C;
+    --dark-charcoal: #333333;
+    --off-white: #F9F9F9;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-charcoal);
+    background-color: var(--soft-cream);
+    cursor: none;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--muted-gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(212, 175, 55, 0.2);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease;
+}
+
+.custom-cursor.expand {
+    width: 50px;
+    height: 50px;
+}
+
+.hamburger {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    background: transparent;
+    border: none;
+    cursor: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 2px;
+    background-color: var(--deep-espresso);
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+    background-color: var(--muted-gold);
+}
+
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--tan);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.fullscreen-menu.active {
+    transform: translateY(0);
+}
+
+.close-menu {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 4rem;
+    background: transparent;
+    border: none;
+    color: var(--deep-espresso);
+    cursor: none;
+    line-height: 1;
+}
+
+.menu-links {
+    list-style: none;
+    text-align: center;
+}
+
+.menu-links li {
+    margin: 2rem 0;
+}
+
+.menu-links a {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--deep-espresso);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-links a:hover {
+    color: var(--muted-gold);
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    cursor: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-float svg {
+    width: 35px;
+    height: 35px;
+    color: white;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--deep-espresso);
+}
+
+#canvas3d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--off-white);
+}
+
+.brand-name {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.typewriter {
+    font-size: 2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    min-height: 3rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--deep-espresso);
+}
+
+.philosophy-section {
+    padding: 8rem 0;
+    background-color: var(--soft-cream);
+}
+
+.philosophy-text {
+    font-size: 1.5rem;
+    line-height: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 2rem auto;
+    color: var(--dark-charcoal);
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.testimonials-section {
+    padding: 8rem 0;
+    background-color: var(--deep-espresso);
+}
+
+.testimonials-section .section-title {
+    color: var(--off-white);
+}
+
+.testimonial-carousel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-card {
+    min-width: 400px;
+    padding: 3rem;
+    scroll-snap-align: center;
+    transition: transform 0.3s ease;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--off-white);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    color: var(--tan);
+    text-align: right;
+}
+
+.enrollment-section {
+    padding: 8rem 0;
+    background-color: var(--soft-cream);
+}
+
+.enrollment-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--deep-espresso);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--tan);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background-color: var(--off-white);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--muted-gold);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--muted-gold);
+    color: var(--deep-espresso);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--deep-espresso);
+    color: var(--muted-gold);
+    transform: translateY(-3px);
+}
+
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 3rem;
+    opacity: 0;
+}
+
+.success-message.show {
+    display: block;
+    animation: fadeIn 0.6s forwards;
+}
+
+.success-message h3 {
+    font-size: 2.5rem;
+    color: var(--muted-gold);
+    margin-bottom: 1rem;
+}
+
+.success-message p {
+    font-size: 1.3rem;
+    color: var(--dark-charcoal);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.faq-section {
+    padding: 8rem 0;
+    background-color: var(--deep-espresso);
+}
+
+.faq-section .section-title {
+    color: var(--off-white);
+}
+
+.faq-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.5rem 0;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--off-white);
+    cursor: none;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--muted-gold);
+}
+
+.faq-icon {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding-bottom: 1.5rem;
+}
+
+.faq-answer p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--tan);
+}
+
+.footer {
+    padding: 3rem 0;
+    background-color: var(--deep-espresso);
+    text-align: center;
+}
+
+.footer p {
+    color: var(--tan);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 3rem;
+    }
+
+    .typewriter {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .philosophy-text {
+        font-size: 1.2rem;
+    }
+
+    .testimonial-card {
+        min-width: 300px;
+    }
+
+    .menu-links a {
+        font-size: 2rem;
+    }
+  }
