@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renaissance - Premium Educational Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="fullscreen-menu" id="fullscreenMenu">
+        <button class="close-menu" id="closeMenu">&times;</button>
+        <ul class="menu-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#enrollment">Enroll</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <a href="https://wa.me/917498836683" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 0C7.164 0 0 7.163 0 16c0 2.825.738 5.607 2.139 8.064L.054 31.872l8.042-2.088A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.455c-2.471 0-4.898-.68-7.029-1.967l-.504-.299-5.229 1.358 1.397-5.115-.329-.524A13.396 13.396 0 012.545 16c0-7.427 6.028-13.455 13.455-13.455 7.426 0 13.455 6.028 13.455 13.455S23.426 29.455 16 29.455z"/>
+            <path d="M23.147 19.678c-.396-.198-2.348-1.158-2.711-1.29-.364-.132-.629-.198-.893.198-.265.396-1.025 1.29-1.256 1.555-.231.265-.462.298-.859.1-.396-.199-1.674-.617-3.188-1.967-1.179-1.05-1.975-2.347-2.206-2.743-.231-.396-.025-.611.174-.808.178-.178.396-.462.594-.694.198-.231.265-.396.396-.661.132-.265.066-.495-.033-.694-.099-.198-.893-2.151-1.224-2.943-.322-.771-.65-.667-.893-.679-.231-.012-.495-.015-.76-.015s-.694.099-1.058.495c-.364.396-1.389 1.356-1.389 3.309s1.422 3.838 1.62 4.103c.198.264 2.794 4.267 6.77 5.982.946.408 1.685.652 2.261.835.95.302 1.814.259 2.497.157.762-.114 2.348-.96 2.679-1.888.331-.927.331-1.721.231-1.888-.099-.165-.364-.264-.76-.462z"/>
+        </svg>
+    </a>
+
+    <section id="hero" class="hero-section">
+        <canvas id="canvas3d"></canvas>
+        <div class="hero-content">
+            <h1 class="brand-name">Renaissance</h1>
+            <p class="typewriter" id="typewriter"></p>
+        </div>
+    </section>
+
+    <section id="philosophy" class="philosophy-section">
+        <div class="container">
+            <h2 class="section-title fade-up">Our Philosophy</h2>
+            <p class="philosophy-text fade-up">Renaissance isn't just tuition; it's about sculpting a child's potential. We bridge the gap between where your child is and where they are meant to be.</p>
+            <p class="philosophy-text fade-up">Every session is designed to nurture intellectual curiosity, build unshakeable confidence, and unlock the masterpiece within.</p>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Parents Say</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-card glass-card tilt-card">
+                    <p class="testimonial-text">"Renaissance transformed my daughter's approach to learning. She went from struggling to thriving in just three months."</p>
+                    <p class="testimonial-author">— Priya Sharma, Mumbai</p>
+                </div>
+                <div class="testimonial-card glass-card tilt-card">
+                    <p class="testimonial-text">"The personalized attention and innovative teaching methods are unmatched. My son now loves learning."</p>
+                    <p class="testimonial-author">— Rajesh Kumar, Delhi</p>
+                </div>
+                <div class="testimonial-card glass-card tilt-card">
+                    <p class="testimonial-text">"Investing in Renaissance was the best decision we made for our child's future. True excellence."</p>
+                    <p class="testimonial-author">— Anjali Mehta, Bangalore</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enrollment" class="enrollment-section">
+        <div class="container">
+            <h2 class="section-title">Begin the Journey</h2>
+            <form id="enrollmentForm" class="enrollment-form">
+                <div class="form-group">
+                    <label for="name">Parent's Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="goals">Child's Details & Goals</label>
+                    <textarea id="goals" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Begin the Transformation</button>
+            </form>
+            <div id="successMessage" class="success-message">
+                <h3>Thank You!</h3>
+                <p>We'll be in touch shortly to begin your child's transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What age groups do you teach?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with students from grades 6-12, tailoring our approach to each age group's unique learning needs and developmental stage.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What subjects do you cover?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We specialize in English, Mathematics, Science, and personalized study skills coaching. Each program is customized to your child's goals.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How are sessions conducted?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer both in-person and online sessions with the same level of personalized attention and excellence in teaching methodology.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What makes Renaissance different?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We focus on developing critical thinking, creativity, and genuine understanding rather than rote memorization. Your child learns to think, not just to answer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Renaissance. Sculpting Excellence.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+      </html>
